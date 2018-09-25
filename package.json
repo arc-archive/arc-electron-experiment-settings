@@ -1,0 +1,29 @@
+{
+  "name": "@advanced-rest-client/arc-electron-experiment-settings",
+  "description": "Experiments settings panel for ARC",
+  "version": "2.0.0-preview",
+  "license": "Apache-2.0",
+  "main": "arc-electron-experiment-settings.html",
+  "authors": [
+    "Pawel Psztyc",
+    "The Advanced REST client authors <arc@mulesoft.com>"
+  ],
+  "devDependencies": {
+    "@polymer/gen-typescript-declarations": "^1.5.1"
+  },
+  "private": false,
+  "scripts": {
+    "lint": "polymer lint arc-electron-experiment-settings.html",
+    "test-sauce": "polymer test --plugin sauce --job-name \"arc-electron-experiment-settings:local-test\"",
+    "test": "polymer test --plugin local",
+    "update-types": "gen-typescript-declarations --deleteExisting --outDir ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/advanced-rest-client/arc-electron-experiment-settings.git"
+  },
+  "bugs": {
+    "url": "https://github.com/advanced-rest-client/arc-electron-experiment-settings/issues",
+    "email": "arc@mulesoft.com"
+  }
+}

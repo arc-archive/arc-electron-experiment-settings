@@ -1,0 +1,706 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`arc-electron-experiment-settings`\n\nExperiments settings panel for ARC\n\n## Styling\n\n`<arc-electron-experiment-settings>` provides the following custom properties and mixins for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--arc-request-settings-panel` | Mixin applied to this elment | `{}`",
+      "summary": "",
+      "path": "arc-electron-experiment-settings.html",
+      "properties": [
+        {
+          "name": "manual",
+          "type": "boolean | null | undefined",
+          "description": "When set the element will not request current settings state and\nwill wait until it's properties are set.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 99,
+              "column": 8
+            },
+            "end": {
+              "line": 99,
+              "column": 23
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "loading",
+          "type": "boolean | null | undefined",
+          "description": "When set the settings are baing loaded.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 103,
+              "column": 8
+            },
+            "end": {
+              "line": 103,
+              "column": 62
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "readOnly": true,
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "page",
+          "type": "number | null | undefined",
+          "description": "Some panels have sub pages. This tracks selected page.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 107,
+              "column": 8
+            },
+            "end": {
+              "line": 107,
+              "column": 20
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "__settingsRestored",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 108,
+              "column": 8
+            },
+            "end": {
+              "line": 108,
+              "column": 57
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "popupMenuExperimentEnabled",
+          "type": "boolean | null | undefined",
+          "description": "Collects information abour system variables when evaluating\nrequest.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 8
+            },
+            "end": {
+              "line": 78,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_popupMenuChanged\"",
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 117,
+              "column": 4
+            },
+            "end": {
+              "line": 123,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 125,
+              "column": 4
+            },
+            "end": {
+              "line": 128,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "loadSettings",
+          "description": "Dispatches `settings-read` custom event to settings provider to read\napplication settings and sets received values on the component.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 135,
+              "column": 4
+            },
+            "end": {
+              "line": 143,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "Promise",
+            "desc": "Promise resolved when operartion ends."
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_readSettings",
+          "description": "Reads settings from the settings provider",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 148,
+              "column": 4
+            },
+            "end": {
+              "line": 161,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "Promise"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_processValues",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 4
+            },
+            "end": {
+              "line": 93,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "values"
+            }
+          ]
+        },
+        {
+          "name": "_setSettings",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 4
+            },
+            "end": {
+              "line": 99,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "values"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "updateSetting",
+          "description": "Dispatches `settings-changed` to settings provider with new value.\nThe event is dispatched with 300 ms debouncer.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 175,
+              "column": 4
+            },
+            "end": {
+              "line": 194,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "key",
+              "type": "String",
+              "description": "Setting key"
+            },
+            {
+              "name": "value",
+              "type": "any",
+              "description": "Value to store. Values are serialized"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_updateSetting",
+          "description": "Dispatches `settings-changed` event to store the setting value.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 200,
+              "column": 4
+            },
+            "end": {
+              "line": 215,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name",
+              "type": "String",
+              "description": "Property name"
+            },
+            {
+              "name": "value",
+              "type": "any",
+              "description": "A value to store."
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_boolValue",
+          "description": "Returns a boolean value for the `value`.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 221,
+              "column": 4
+            },
+            "end": {
+              "line": 235,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value",
+              "type": "any"
+            }
+          ],
+          "return": {
+            "type": "Boolean"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_numValue",
+          "description": "Returns a numeric value for the `value`",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 241,
+              "column": 4
+            },
+            "end": {
+              "line": 247,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val",
+              "type": "any",
+              "description": "Current value"
+            }
+          ],
+          "return": {
+            "type": "Number",
+            "desc": "Translated value"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_showPage",
+          "description": "Shows internal sub-page",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 253,
+              "column": 4
+            },
+            "end": {
+              "line": 270,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e",
+              "type": "ClickEvent"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "back",
+          "description": "Restores the main page of the editor.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 274,
+              "column": 4
+            },
+            "end": {
+              "line": 276,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_toggleOption",
+          "description": "To be used when a list item has a toggle button.\nWhen clicking on the list option this function should be called to\ntoggle the button.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 283,
+              "column": 4
+            },
+            "end": {
+              "line": 286,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e",
+              "type": "ClickEvent"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_cancelEvent",
+          "description": "Cancels the event and it's propagation.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 291,
+              "column": 4
+            },
+            "end": {
+              "line": 294,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e",
+              "type": "Event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_openLink",
+          "description": "Opens a URL in new window.\nIf the application handle `open-external-url` then it does nothing.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 301,
+              "column": 4
+            },
+            "end": {
+              "line": 315,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "url",
+              "type": "String"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "__settingsUpdated",
+          "description": "Handler for `settings-changed` event.\nCalls `_settingsChanged` function if implementing element has this method.",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 321,
+              "column": 4
+            },
+            "end": {
+              "line": 329,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e",
+              "type": "CustomEvent"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "_popupMenuChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 4
+            },
+            "end": {
+              "line": 84,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_settingsChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 4
+            },
+            "end": {
+              "line": 109,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "key"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/index.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 66,
+          "column": 2
+        },
+        "end": {
+          "line": 110,
+          "column": 3
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "UiElements.ArcElectronExperimentSettings",
+      "attributes": [
+        {
+          "name": "manual",
+          "description": "When set the element will not request current settings state and\nwill wait until it's properties are set.",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 99,
+              "column": 8
+            },
+            "end": {
+              "line": 99,
+              "column": 23
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "loading",
+          "description": "When set the settings are baing loaded.",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 103,
+              "column": 8
+            },
+            "end": {
+              "line": 103,
+              "column": 62
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "page",
+          "description": "Some panels have sub pages. This tracks selected page.",
+          "sourceRange": {
+            "file": "../arc-settings-panel-mixin/arc-settings-panel-mixin.html",
+            "start": {
+              "line": 107,
+              "column": 8
+            },
+            "end": {
+              "line": 107,
+              "column": 20
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined",
+          "inheritedFrom": "ArcComponents.ArcSettingsPanelMixin"
+        },
+        {
+          "name": "popup-menu-experiment-enabled",
+          "description": "Collects information abour system variables when evaluating\nrequest.",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 8
+            },
+            "end": {
+              "line": 78,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "popup-menu-experiment-enabled-changed",
+          "description": "Fired when the `popupMenuExperimentEnabled` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "arc-electron-experiment-settings",
+      "mixins": [
+        "ArcComponents.ArcSettingsPanelMixin"
+      ]
+    }
+  ]
+}

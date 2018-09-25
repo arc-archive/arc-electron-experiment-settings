@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>arc-electron-experiment-settings test</title>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <script src="../../iron-test-helpers/mock-interactions.js"></script>
+  <link rel="import" href="../arc-electron-experiment-settings.html">
+</head>
+<body>
+  <test-fixture id="Manual">
+    <template>
+      <arc-electron-experiment-settings></arc-electron-experiment-settings>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="Auto">
+    <template>
+      <arc-electron-experiment-settings></arc-electron-experiment-settings>
+    </template>
+  </test-fixture>
+
+  <script>
+  /* global MockInteractions */
+  suite('arc-electron-experiment-settings', () => {
+    let element;
+    setup((done) => {
+      element = fixture('Manual');
+      flush(() => done());
+    });
+
+    [
+      ['popup menu', 0, 'popupMenuExperimentEnabled']
+    ].forEach((item) => {
+      test(`Toggles ${item[0]}`, function() {
+        const node = element.shadowRoot.querySelectorAll('paper-item')[item[1]];
+        MockInteractions.tap(node);
+        assert.isTrue(element[item[2]]);
+      });
+    });
+  });
+  </script>
+</body>
+</html>

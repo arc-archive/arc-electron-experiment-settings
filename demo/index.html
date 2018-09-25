@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <title>api-request-editor demo</title>
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="../../shadycss/apply-shim.html">
+    <link rel="import" href="../../polymer/lib/elements/custom-style.html">
+    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../arc-local-store-preferences/arc-local-store-preferences.html">
+    <link rel="import" href="../arc-electron-experiment-settings.html">
+    <link rel="import" href="../../arc-electron-default-theme/arc-electron-default-theme.html">
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      body,
+      html {
+        background-color: #e5e5e5 !important;
+        margin: 0;
+        padding: 0;
+      }
+
+      .centered {
+        background-color: #fff;
+        padding: 24px;
+      }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <dom-bind id="demo">
+      <template is="dom-bind">
+        <arc-local-store-preferences></arc-local-store-preferences>
+        <div class="vertical-section-container centered" role="main">
+          <arc-electron-experiment-settings></arc-electron-experiment-settings>
+        </div>
+      </template>
+    </dom-bind>
+    <script>
+  </script>
+  </body>
+</html>
