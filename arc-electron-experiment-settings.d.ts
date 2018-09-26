@@ -26,7 +26,8 @@ declare namespace UiElements {
    *
    * ## Styling
    *
-   * `<arc-electron-experiment-settings>` provides the following custom properties and mixins for styling:
+   * `<arc-electron-experiment-settings>` provides the following custom
+   * properties and mixins for styling:
    *
    * Custom property | Description | Default
    * ----------------|-------------|----------
@@ -41,9 +42,21 @@ declare namespace UiElements {
      * request.
      */
     popupMenuExperimentEnabled: boolean|null|undefined;
+
+    /**
+     * Setting to validate certificates when making a request.
+     */
+    validateCertificates: object|null;
+
+    /**
+     * Enables platform's native HTTP transport.
+     */
+    nativeTransport: boolean|null|undefined;
     _processValues(values: any): any;
     _setSettings(values: any): void;
     _popupMenuChanged(value: any): void;
+    _certsChanged(value: any): void;
+    _nativeTransportChanged(value: any): void;
     _settingsChanged(key: any, value: any): void;
   }
 }

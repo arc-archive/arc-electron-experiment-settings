@@ -32,12 +32,44 @@
     });
 
     [
-      ['popup menu', 0, 'popupMenuExperimentEnabled']
+      ['popup menu', 0, 'popupMenuExperimentEnabled'],
+      ['SSL validation', 1, 'validateCertificates'],
+      ['native request', 2, 'nativeTransport']
     ].forEach((item) => {
       test(`Toggles ${item[0]}`, function() {
         const node = element.shadowRoot.querySelectorAll('paper-item')[item[1]];
         MockInteractions.tap(node);
         assert.isTrue(element[item[2]]);
+      });
+    });
+  });
+
+  suite('_settingsChanged()', () => {
+    let element;
+    setup((done) => {
+      element = fixture('Manual');
+      flush(() => done());
+    });
+    function fire(name, value) {
+      const ev = new CustomEvent('settings-changed', {
+        cancelable: false,
+        composed: true,
+        bubbles: true,
+        detail: {
+          name,
+          value
+        }
+      });
+      document.body.dispatchEvent(ev);
+    }
+    [
+      ['popupMenuExperimentEnabled', true],
+      ['validateCertificates', true],
+      ['nativeTransport', true]
+    ].forEach((item) => {
+      test(`Updates value for ${item[0]}`, function() {
+        fire(item[0], item[1]);
+        assert.strictEqual(element[item[0]], item[1]);
       });
     });
   });

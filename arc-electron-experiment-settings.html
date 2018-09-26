@@ -42,6 +42,26 @@ the License.
         </paper-item-body>
         <paper-toggle-button tabindex="-1" checked="{{popupMenuExperimentEnabled}}" on-click="_cancelEvent"></paper-toggle-button>
       </paper-item>
+
+      <paper-item class="clickable" on-click="_toggleOption">
+        <paper-item-body two-line>
+          <div>
+            Validate SSL certificates
+          </div>
+          <div secondary>Validate certificate when making a request</div>
+        </paper-item-body>
+        <paper-toggle-button tabindex="-1" checked="{{validateCertificates}}" on-click="_cancelEvent"></paper-toggle-button>
+      </paper-item>
+
+      <paper-item class="clickable" on-click="_toggleOption">
+        <paper-item-body two-line>
+          <div>
+            Native request
+          </div>
+          <div secondary>Use platform's native HTTP transport instead of ARC's</div>
+        </paper-item-body>
+        <paper-toggle-button tabindex="-1" checked="{{nativeTransport}}" on-click="_cancelEvent"></paper-toggle-button>
+      </paper-item>
     </div>
   </template>
   <script>
@@ -52,7 +72,8 @@ the License.
    *
    * ## Styling
    *
-   * `<arc-electron-experiment-settings>` provides the following custom properties and mixins for styling:
+   * `<arc-electron-experiment-settings>` provides the following custom
+   * properties and mixins for styling:
    *
    * Custom property | Description | Default
    * ----------------|-------------|----------
@@ -76,6 +97,23 @@ the License.
           type: Boolean,
           notify: true,
           observer: '_popupMenuChanged'
+        },
+        /**
+         * Setting to validate certificates when making a request.
+         * @type {Object}
+         */
+        validateCertificates: {
+          type: Boolean,
+          notify: true,
+          observer: '_certsChanged'
+        },
+        /**
+         * Enables platform's native HTTP transport.
+         */
+        nativeTransport: {
+          type: Boolean,
+          notify: true,
+          observer: '_nativeTransportChanged'
         }
       };
     }
@@ -84,11 +122,29 @@ the License.
       this.updateSetting('popupMenuExperimentEnabled', value);
     }
 
+    _certsChanged(value) {
+      this.updateSetting('validateCertificates', value);
+    }
+
+    _nativeTransportChanged(value) {
+      this.updateSetting('nativeTransport', value);
+    }
+
     _processValues(values) {
       if (typeof values.popupMenuExperimentEnabled === 'undefined') {
         values.popupMenuExperimentEnabled = false;
       } else {
         values.popupMenuExperimentEnabled = this._boolValue(values.popupMenuExperimentEnabled);
+      }
+      if (typeof values.validateCertificates === 'undefined') {
+        values.validateCertificates = false;
+      } else {
+        values.validateCertificates = this._boolValue(values.validateCertificates);
+      }
+      if (typeof values.nativeTransport === 'undefined') {
+        values.nativeTransport = false;
+      } else {
+        values.nativeTransport = this._boolValue(values.nativeTransport);
       }
       return values;
     }
@@ -96,6 +152,8 @@ the License.
     _setSettings(values) {
       this.__settingsRestored = false;
       this.popupMenuExperimentEnabled = values.popupMenuExperimentEnabled;
+      this.validateCertificates = values.validateCertificates;
+      this.nativeTransport = values.nativeTransport;
       this.__settingsRestored = true;
     }
 
@@ -103,6 +161,8 @@ the License.
       this.__settingsRestored = false;
       switch (key) {
         case 'popupMenuExperimentEnabled':
+        case 'validateCertificates':
+        case 'nativeTransport':
           this[key] = value;
           break;
       }
