@@ -73,6 +73,51 @@
       });
     });
   });
+
+  suite('_processValues()', () => {
+    let element;
+    setup(() => {
+      element = fixture('Manual');
+    });
+    [
+      ['popupMenuExperimentEnabled', undefined, false],
+      ['popupMenuExperimentEnabled', true, true],
+      ['popupMenuExperimentEnabled', 'false', false],
+      ['validateCertificates', undefined, false],
+      ['validateCertificates', true, true],
+      ['validateCertificates', 'false', false],
+      ['nativeTransport', undefined, false],
+      ['nativeTransport', true, true],
+      ['nativeTransport', 'false', false]
+    ].forEach((item) => {
+      test(`Sets value of ${item[0]} when ${item[1]}`, () => {
+        const values = {};
+        values[item[0]] = item[1];
+        element._processValues(values);
+        assert.equal(values[item[0]], item[2]);
+      });
+    });
+  });
+
+  suite('_setSettings()', () => {
+    let element;
+    setup(() => {
+      element = fixture('Manual');
+    });
+
+    [
+      ['popupMenuExperimentEnabled', true],
+      ['validateCertificates', true],
+      ['nativeTransport', true]
+    ].forEach((item) => {
+      test(`Sets value of ${item[0]}`, () => {
+        const values = {};
+        values[item[0]] = item[1];
+        element._setSettings(values);
+        assert.equal(element[item[0]], item[1]);
+      });
+    });
+  });
   </script>
 </body>
 </html>
