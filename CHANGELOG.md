@@ -16,3 +16,16 @@
 
 
 
+## [2.0.1](https://github.com/advanced-rest-client/arc-electron-experiment-settings/compare/2.0.0...2.0.1) (2019-02-11)
+
+
+### Docs
+
+* Updating polymer docs ([9506da70a3aebf8f6532b8473b87967a5b236219](https://github.com/advanced-rest-client/arc-electron-experiment-settings/commit/9506da70a3aebf8f6532b8473b87967a5b236219))
+
+### New
+
+* Adding `draggableEnabled` option ([9f8f229e3522c9ff44b3e02b57d28607f903c1cc](https://github.com/advanced-rest-client/arc-electron-experiment-settings/commit/9f8f229e3522c9ff44b3e02b57d28607f903c1cc))
+
+
+
