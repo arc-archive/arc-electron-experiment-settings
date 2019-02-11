@@ -56,11 +56,17 @@ declare namespace UiElements {
      * Enables platform's native HTTP transport.
      */
     nativeTransport: boolean|null|undefined;
+
+    /**
+     * Enables requests/projects drag and drop between different views.
+     */
+    draggableEnabled: boolean|null|undefined;
     _processValues(values: any): any;
     _setSettings(values: any): void;
     _popupMenuChanged(value: any): void;
     _certsChanged(value: any): void;
     _nativeTransportChanged(value: any): void;
+    _draggableChanged(value: any): void;
     _settingsChanged(key: any, value: any): void;
   }
 }
