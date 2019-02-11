@@ -34,7 +34,8 @@
     [
       ['popup menu', 0, 'popupMenuExperimentEnabled'],
       ['SSL validation', 1, 'validateCertificates'],
-      ['native request', 2, 'nativeTransport']
+      ['native request', 2, 'nativeTransport'],
+      ['drag and drop', 3, 'draggableEnabled']
     ].forEach((item) => {
       test(`Toggles ${item[0]}`, function() {
         const node = element.shadowRoot.querySelectorAll('paper-item')[item[1]];
@@ -65,7 +66,8 @@
     [
       ['popupMenuExperimentEnabled', true],
       ['validateCertificates', true],
-      ['nativeTransport', true]
+      ['nativeTransport', true],
+      ['draggableEnabled', true]
     ].forEach((item) => {
       test(`Updates value for ${item[0]}`, function() {
         fire(item[0], item[1]);
@@ -88,7 +90,10 @@
       ['validateCertificates', 'false', false],
       ['nativeTransport', undefined, false],
       ['nativeTransport', true, true],
-      ['nativeTransport', 'false', false]
+      ['nativeTransport', 'false', false],
+      ['draggableEnabled', undefined, false],
+      ['draggableEnabled', true, true],
+      ['draggableEnabled', 'false', false]
     ].forEach((item) => {
       test(`Sets value of ${item[0]} when ${item[1]}`, () => {
         const values = {};
@@ -108,7 +113,8 @@
     [
       ['popupMenuExperimentEnabled', true],
       ['validateCertificates', true],
-      ['nativeTransport', true]
+      ['nativeTransport', true],
+      ['draggableEnabled', true]
     ].forEach((item) => {
       test(`Sets value of ${item[0]}`, () => {
         const values = {};
