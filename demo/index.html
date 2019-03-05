@@ -4,16 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <title>api-request-editor demo</title>
-    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
-    <link rel="import" href="../../shadycss/apply-shim.html">
-    <link rel="import" href="../../polymer/lib/elements/custom-style.html">
-    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../../arc-local-store-preferences/arc-local-store-preferences.html">
-    <link rel="import" href="../arc-electron-experiment-settings.html">
-    <link rel="import" href="../../arc-electron-default-theme/arc-electron-default-theme.html">
-    <custom-style>
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="module" src="../../../@webcomponents/shadycss/entrypoints/apply-shim.js"></script>
+    <script type="module" src="../../../@polymer/polymer/lib/elements/custom-style.js"></script>
+    <script type="module" src="../../../@polymer/polymer/lib/elements/dom-bind.js"></script>
+    <script type="module" src="../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+    <script type="module" src="../../../arc-local-store-preferences/arc-local-store-preferences.js"></script>
+    <script type="module" src="../arc-electron-experiment-settings.js"></script>
+    <script type="module" src="../../../arc-electron-default-theme/arc-electron-default-theme.js"></script>
+    <!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
       body,
       html {
@@ -27,18 +38,35 @@
         padding: 24px;
       }
       </style>
-    </custom-style>
+    </custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
   </head>
   <body>
-    <dom-bind id="demo">
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-bind id="demo">
       <template is="dom-bind">
         <arc-local-store-preferences></arc-local-store-preferences>
         <div class="vertical-section-container centered" role="main">
           <arc-electron-experiment-settings></arc-electron-experiment-settings>
         </div>
       </template>
-    </dom-bind>
-    <script>
-  </script>
+    </dom-bind>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+    <script type="module">
+import '../../../@webcomponents/shadycss/entrypoints/apply-shim.js';
+import '../../../@polymer/polymer/lib/elements/custom-style.js';
+import '../../../@polymer/polymer/lib/elements/dom-bind.js';
+import '../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+import '../../../@polymer/iron-demo-helpers/demo-snippet.js';
+import '../../../arc-local-store-preferences/arc-local-store-preferences.js';
+import '../arc-electron-experiment-settings.js';
+import '../../../arc-electron-default-theme/arc-electron-default-theme.js';
+</script>
   </body>
 </html>
