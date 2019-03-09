@@ -5,21 +5,20 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   arc-electron-experiment-settings.html
+ *   arc-electron-experiment-settings.js
  */
 
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-/// <reference path="../polymer/types/polymer-element.d.ts" />
-/// <reference path="../paper-item/paper-item.d.ts" />
-/// <reference path="../paper-item/paper-item-body.d.ts" />
-/// <reference path="../paper-toggle-button/paper-toggle-button.d.ts" />
-/// <reference path="../iron-flex-layout/iron-flex-layout.d.ts" />
-/// <reference path="../paper-styles/shadow.d.ts" />
-/// <reference path="../arc-settings-panel-mixin/arc-settings-panel-mixin.d.ts" />
-/// <reference path="../arc-settings-panel-mixin/arc-settings-panel-styles.d.ts" />
+import {PolymerElement} from '@polymer/polymer/polymer-element.js';
+
+import {ArcSettingsPanelMixin} from '@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-mixin.js';
+
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+
+export {ArcElectronExperimentSettings};
 
 declare namespace UiElements {
 
@@ -38,7 +37,7 @@ declare namespace UiElements {
    * `--arc-request-settings-panel` | Mixin applied to this elment | `{}`
    */
   class ArcElectronExperimentSettings extends
-    ArcComponents.ArcSettingsPanelMixin(
+    ArcSettingsPanelMixin(
     Object) {
 
     /**
@@ -71,6 +70,9 @@ declare namespace UiElements {
   }
 }
 
-interface HTMLElementTagNameMap {
-  "arc-electron-experiment-settings": UiElements.ArcElectronExperimentSettings;
+declare global {
+
+  interface HTMLElementTagNameMap {
+    "arc-electron-experiment-settings": UiElements.ArcElectronExperimentSettings;
+  }
 }

@@ -11,16 +11,15 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 */
-import { PolymerElement } from '../../@polymer/polymer/polymer-element.js';
-
-import '../../@polymer/paper-item/paper-item.js';
-import '../../@polymer/paper-item/paper-item-body.js';
-import '../../@polymer/paper-toggle-button/paper-toggle-button.js';
-import '../../@polymer/iron-flex-layout/iron-flex-layout.js';
-import '../../@polymer/paper-styles/shadow.js';
-import '../../arc-settings-panel-mixin/arc-settings-panel-mixin.js';
-import '../../arc-settings-panel-mixin/arc-settings-panel-styles.js';
-import { html } from '../../@polymer/polymer/lib/utils/html-tag.js';
+import {PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-item/paper-item.js';
+import '@polymer/paper-item/paper-item-body.js';
+import '@polymer/paper-toggle-button/paper-toggle-button.js';
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
+import '@polymer/paper-styles/shadow.js';
+import {ArcSettingsPanelMixin} from '@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-mixin.js';
+import '@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-styles.js';
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 /**
  * `arc-electron-experiment-settings`
  *
@@ -39,9 +38,9 @@ import { html } from '../../@polymer/polymer/lib/utils/html-tag.js';
  * @polymer
  * @demo demo/index.html
  * @memberof UiElements
- * @appliesMixin ArcComponents.ArcSettingsPanelMixin
+ * @appliesMixin ArcSettingsPanelMixin
  */
-class ArcElectronExperimentSettings extends ArcComponents.ArcSettingsPanelMixin(PolymerElement) {
+export class ArcElectronExperimentSettings extends ArcSettingsPanelMixin(PolymerElement) {
   static get template() {
     return html`
     <style include="arc-settings-panel-styles">
@@ -63,7 +62,10 @@ class ArcElectronExperimentSettings extends ArcComponents.ArcSettingsPanelMixin(
           <div>Popup menu</div>
           <div secondary="">Allows to popup applicaiton menu to it's own window</div>
         </paper-item-body>
-        <paper-toggle-button tabindex="-1" checked="{{popupMenuExperimentEnabled}}" on-click="_cancelEvent"></paper-toggle-button>
+        <paper-toggle-button
+          tabindex="-1"
+          checked="{{popupMenuExperimentEnabled}}"
+          on-click="_cancelEvent"></paper-toggle-button>
       </paper-item>
 
       <paper-item class="clickable" on-click="_toggleOption">
@@ -73,7 +75,10 @@ class ArcElectronExperimentSettings extends ArcComponents.ArcSettingsPanelMixin(
           </div>
           <div secondary="">Validate certificate when making a request</div>
         </paper-item-body>
-        <paper-toggle-button tabindex="-1" checked="{{validateCertificates}}" on-click="_cancelEvent"></paper-toggle-button>
+        <paper-toggle-button
+          tabindex="-1"
+          checked="{{validateCertificates}}"
+          on-click="_cancelEvent"></paper-toggle-button>
       </paper-item>
 
       <paper-item class="clickable" on-click="_toggleOption">
@@ -99,7 +104,6 @@ class ArcElectronExperimentSettings extends ArcComponents.ArcSettingsPanelMixin(
 `;
   }
 
-  static get is() {return 'arc-electron-experiment-settings';}
   static get properties() {
     return {
       /**
@@ -201,4 +205,4 @@ class ArcElectronExperimentSettings extends ArcComponents.ArcSettingsPanelMixin(
     this.__settingsRestored = true;
   }
 }
-window.customElements.define(ArcElectronExperimentSettings.is, ArcElectronExperimentSettings);
+window.customElements.define('arc-electron-experiment-settings', ArcElectronExperimentSettings);

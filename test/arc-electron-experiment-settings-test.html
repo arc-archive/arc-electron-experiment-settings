@@ -4,10 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
   <title>arc-electron-experiment-settings test</title>
-  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../../../wct-browser-legacy/browser.js"></script>
-  <script src="../../../@polymer/iron-test-helpers/mock-interactions.js" type="module"></script>
-  <script type="module" src="../arc-electron-experiment-settings.js"></script>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="../node_modules/sinon/pkg/sinon.js"></script>
+  
 </head>
 <body>
   <test-fixture id="Manual">
@@ -24,7 +28,7 @@
 
   <script type="module">
   import '../arc-electron-experiment-settings.js';
-  /* global MockInteractions */
+  import {tap} from '../../../@polymer/iron-test-helpers/mock-interactions.js';
   suite('arc-electron-experiment-settings', () => {
     let element;
     setup((done) => {
@@ -40,7 +44,7 @@
     ].forEach((item) => {
       test(`Toggles ${item[0]}`, function() {
         const node = element.shadowRoot.querySelectorAll('paper-item')[item[1]];
-        MockInteractions.tap(node);
+        tap(node);
         assert.isTrue(element[item[2]]);
       });
     });
