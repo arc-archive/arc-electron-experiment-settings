@@ -11,15 +11,15 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 */
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-item/paper-item.js';
-import '@polymer/paper-item/paper-item-body.js';
-import '@polymer/paper-toggle-button/paper-toggle-button.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import '@polymer/paper-styles/shadow.js';
-import {ArcSettingsPanelMixin} from '@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-mixin.js';
-import '@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-styles.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+import {PolymerElement} from '../../@polymer/polymer/polymer-element.js';
+import '../../@polymer/paper-item/paper-item.js';
+import '../../@polymer/paper-item/paper-item-body.js';
+import '../../@polymer/paper-toggle-button/paper-toggle-button.js';
+import '../../@polymer/iron-flex-layout/iron-flex-layout.js';
+import '../../@polymer/paper-styles/shadow.js';
+import {ArcSettingsPanelMixin} from '../../@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-mixin.js';
+import '../../@advanced-rest-client/arc-settings-panel-mixin/arc-settings-panel-styles.js';
+import {html} from '../../@polymer/polymer/lib/utils/html-tag.js';
 /**
  * `arc-electron-experiment-settings`
  *
